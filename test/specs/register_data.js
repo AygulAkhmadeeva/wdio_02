@@ -1,61 +1,69 @@
-const HOST = `https://stage.pasv.us`;
+const HOST = 'https://stage.pasv.us';
 
 const URL_REGISTER = `${HOST}/user/register`;
 const URL_LOGIN = `${HOST}/user/login`;
 
+const email = Math.random().toFixed(4) + 'dcbcj@hotmail.com';
 
-const user ={
-    firstName: 'Viktor',
-    lastName: 'Bogutski',
-    phone: '01234567890',
-    email: Math.random() +'test1@test.com',
-    password: 'apppasv',
-    about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue enim nec imperdiet egestas. Ut egestas mauris mi, vel dictum neque auctor ac. Donec nec sapien nibh. Etiam commodo urna at sapien molestie, non egestas purus vulputate. Donec vel pellentesque metus. Donec vulputate nibh sit amet dignissim blandit. Sed bibendum.',
-    goals: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    englishLevel: {
-        zero: 'Zero',
-        beginner: 'Beginner',
-        Elementary: 'Elementary',
-        preIntermediate: 'Pre-Intermediate',
-        intermediate: 'Intermediate',
-        upperIntermediate: 'Upper intermediate',
-        advanced: 'Advanced',
-        proficient: 'Proficient',
-        native: 'Native',
-    }
+
+const user = {
+
+    firstName : 'John',
+    lastName: 'Smith',
+    password : 'zzzz1111',
+    email: email,
+    phone: '14467367354',
+    about: 'about me',
+    goals: 'eat sleep code',
+    englishLevel: 'Native',
 };
 
-const registerPage = {
+const pageRegister = {
     title: 'Progress Monitor',
-    h1: 'You are a new user',
-    buttonText: 'submit',
+    h1: 'User Register',
+    description: 'Profiles with fictitious or dummy data will be deleted.',
+    buttonText: 'Submit',
+    notificationMessage: 'User created successfully. Please check your email and verify it',
+    authorizationMessage: 'Auth success',
+    emailExistsMessage: 'User with this e-mail exists',
 };
 
 const pageRegisterSelectors = {
-    firstNameInput: 'form input[name="firstName"]',
-    lastNameInput: 'form input[name="lastName"]',
-    phoneInput: 'form input[name="phone"]',
-    emailInput: 'form input[name="email"]',
-    passwordInput: 'form input[name="password"]',
-    aboutInput: 'form textarea[name="about"]',
-    goalsInput: 'form textarea[name="goals"]',
-    englishLevelInput: 'form select[name="englishLevel"]',
-    submitButton: 'form button[type="submit"]'
+    h1: '//h1',
+    description: '//p',
+    submitButton: '//button[@type="submit"]',
+    firstNameInput: '//form//input[@name="firstName"]',
+    lastNameInput: '//form//input[@name="lastName"]',
+    phoneInput: '//form//input[@name="phone"]',
+    emailInput: '//form//input[@name="email"]',
+    passwordInput: '//form//input[@name="password"]',
+    aboutInput: '//form//textarea[@name="about"]',
+    goalsInput: '//form//textarea[@name="goals"]',
+    englishLevelInput: '//form//select[@name="englishLevel"]',
+    notificationMessage: '//div[@class="notifications-wrapper"]//h4[@class="notification-title"]'
+    //.notification-wrapper .notification-title - css style
+
+};
+
+const pageLogin = {
+    title: 'Progress Monitor',
+    h1: 'User Login',
+    buttonText: 'Login',
 };
 
 const pageLoginSelectors = {
-    emailInput: 'form input[name="email"]',
-    passwordInput: 'form input[name="password"]',
-    buttonSubmit: 'form button[type="submit"]',
+    h1: '//h1',
+    submitButton: '//button[@type="submit"]',
+    emailInput: '//form//input[@name="email"]',
+    passwordInput: '//form//input[@name="password"]',
 };
 
-const pageProfileSelectors = {
-    h1: 'h1'
+const pageConfirmation = {
+    h1: 'You are a new user',
 };
 
-const profilePage = {
-    h1: 'You are a new user'
+const pageConfirmationSelectors = {
+    h1: '//h1',
 };
 
-
-module.exports = {URL_LOGIN ,URL_REGISTER, profilePage, pageLoginSelectors, pageProfileSelectors, pageRegisterSelectors, registerPage, user}
+module.exports = {HOST, URL_REGISTER, URL_LOGIN, user, pageRegister, pageRegisterSelectors, pageLogin, pageLoginSelectors, pageConfirmation, pageConfirmationSelectors};
